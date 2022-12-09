@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bottom_sheet_background"
+    android:clickable="true"
+    android:focusable="true"
+    app:behavior_hideable="false"
+    app:behavior_peekHeight="@dimen/peek_size"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/peekGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/peek_padding">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/peekArt"
+            android:layout_width="@dimen/small_art_size"
+            android:layout_height="@dimen/small_art_size"
+            android:background="@color/on_primary_art_background"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ImageShapeOverlay"
+            app:srcCompat="@drawable/ic_track" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/peekTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_spacing"
+            android:layout_marginEnd="@dimen/small_spacing"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@color/onPrimaryColor"
+            android:textSize="@dimen/title_size"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/peekArtist"
+            app:layout_constraintEnd_toStartOf="@id/peekPlayPauseBtn"
+            app:layout_constraintStart_toEndOf="@id/peekArt"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Hero" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/peekArtist"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_spacing"
+            android:layout_marginEnd="@dimen/small_spacing"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@color/onPrimaryColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/peekPlayPauseBtn"
+            app:layout_constraintStart_toEndOf="@id/peekArt"
+            app:layout_constraintTop_toBottomOf="@id/peekTitle"
+            tools:text="Monsta X" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/peekPlayPauseBtn"
+            android:layout_width="@dimen/click_region_size"
+            android:layout_height="@dimen/click_region_size"
+            android:scaleType="centerInside"
+            android:tint="@color/onPrimaryColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_play" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/sheetGroup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0"
+        android:visibility="gone"
+        tools:alpha="1"
+        tools:visibility="visible">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/sheetArt"
+            android:layout_width="@dimen/large_art_size"
+            android:layout_height="@dimen/large_art_size"
+            android:background="@color/on_primary_art_background"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toTopOf="@+id/sheetTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:shapeAppearanceOverlay="@style/ImageShapeOverlay"
+            app:srcCompat="@drawable/ic_track" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/sheetTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_spacing"
+            android:layout_marginTop="@dimen/medium_spacing"
+            android:layout_marginEnd="@dimen/medium_spacing"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textColor="@color/onPrimaryColor"
+            android:textSize="@dimen/sheet_title_size"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/sheetArtist"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sheetArt"
+            tools:text="Hero" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/sheetArtist"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_spacing"
+            android:layout_marginTop="@dimen/small_spacing"
+            android:layout_marginEnd="@dimen/medium_spacing"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textColor="@color/onPrimaryColor"
+            android:textSize="@dimen/sheet_subtitle_size"
+            app:layout_constraintBottom_toTopOf="@id/sheetProgress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sheetTitle"
+            tools:text="Monsta X" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/sheetRandomBtn"
+            android:layout_width="@dimen/click_region_size"
+            android:layout_height="@dimen/click_region_size"
+            android:padding="@dimen/medium_spacing"
+            android:tint="@color/onPrimaryColor"
+            app:layout_constraintBottom_toBottomOf="@+id/sheetPrevBtn"
+            app:layout_constraintEnd_toStartOf="@+id/sheetPrevBtn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/sheetPrevBtn"
+            app:srcCompat="@drawable/ic_shuffle_off" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/sheetPrevBtn"
+            android:layout_width="@dimen/click_region_size"
+            android:layout_height="@dimen/click_region_size"
+            android:scaleType="centerInside"
+            android:tint="@color/onPrimaryColor"
+            app:layout_constraintBottom_toBottomOf="@+id/sheetPlayPauseBtn"
+            app:layout_constraintEnd_toStartOf="@+id/sheetPlayPauseBtn"
+            app:layout_constraintStart_toEndOf="@+id/sheetRandomBtn"
+            app:layout_constraintTop_toTopOf="@+id/sheetPlayPauseBtn"
+            app:srcCompat="@drawable/ic_skip_previous" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/sheetPlayPauseBtn"
+            android:layout_width="@dimen/click_region_size"
+            android:layout_height="@dimen/click_region_size"
+            android:layout_marginTop="@dimen/large_spacing"
+            android:scaleType="centerInside"
+            android:tint="@color/onPrimaryColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/sheetNextBtn"
+            app:layout_constraintStart_toEndOf="@+id/sheetPrevBtn"
+            app:layout_constraintTop_toBottomOf="@id/sheetProgress"
+            app:srcCompat="@drawable/ic_play" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/sheetNextBtn"
+            android:layout_width="@dimen/click_region_size"
+            android:layout_height="@dimen/click_region_size"
+            android:scaleType="centerInside"
+            android:tint="@color/onPrimaryColor"
+            app:layout_constraintBottom_toBottomOf="@+id/sheetPlayPauseBtn"
+            app:layout_constraintEnd_toStartOf="@+id/sheetRepeatBtn"
+            app:layout_constraintStart_toEndOf="@+id/sheetPlayPauseBtn"
+            app:layout_constraintTop_toTopOf="@+id/sheetPlayPauseBtn"
+            app:srcCompat="@drawable/ic_skip_next" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/sheetRepeatBtn"
+            android:layout_width="@dimen/click_region_size"
+            android:layout_height="@dimen/click_region_size"
+            android:padding="@dimen/medium_spacing"
+            android:tint="@color/onPrimaryColor"
+            app:layout_constraintBottom_toBottomOf="@+id/sheetNextBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/sheetNextBtn"
+            app:layout_constraintTop_toTopOf="@+id/sheetNextBtn"
+            app:srcCompat="@drawable/ic_repeat_off" />
+
+        <SeekBar
+            android:id="@+id/sheetProgress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_spacing"
+            android:layout_marginTop="@dimen/large_spacing"
+            android:layout_marginEnd="@dimen/medium_spacing"
+            app:layout_constraintBottom_toTopOf="@id/sheetPlayPauseBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sheetArtist" />
+
+        <TextView
+            android:id="@+id/sheet_progress_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_spacing"
+            android:text="@string/zero_timing"
+            android:textColor="@color/onPrimaryColor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sheetProgress" />
+
+        <TextView
+            android:id="@+id/sheet_duration_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/medium_spacing"
+            android:text="@string/zero_timing"
+            android:textColor="@color/onPrimaryColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sheetProgress" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">SØ Player</string>
+    <string name="tracks_item_label">Tracks</string>
+    <string name="albums_item_label">Albums</string>
+    <string name="search_input_hint">Enter a track name…</string>
+    <string name="no_results_description">No results found</string>
+    <string name="find_music_description">Find your favorite music</string>
+    <string name="no_albums_description">No available albums on your device</string>
+    <string name="no_tracks_description">No available tracks on your device</string>
+    <string name="zero_timing">00:00</string>
+    <string name="no_queued_tracks">No queued tracks</string>
+    <string name="no_artist">No Artist</string>
+    <string name="album_subtitle_singular">%s | %d track</string>
+    <string name="album_subtitle_plural">%s | %d tracks</string>
+    <string name="tracks_details">Track details</string>
+    <string name="search_label">Search</string>
+    <string name="title_details_label">Title :</string>
+    <string name="artist_details_label">Artist :</string>
+    <string name="album_details_label">Album :</string>
+    <string name="duration_details_label">Duration :</string>
+    <string name="size_details_label">Size :</string>
+    <string name="no_longer_available">No longer available</string>
+    <string name="track_size">%.2f MB</string>
+    <string name="more_label">More</string>
+    <string name="request_label">Request</string>
+    <string name="permissions_small_description">This app requires read and write external storage permissions.</string>
+    <string name="more_on_permissions">More on permissions</string>
+    <string name="permissions_decription_full">Read External Storage required to collect the music available on the device and Write External Storage required from an Android API that is responsible for getting albums art covers.</string>
+    <string name="alright">Alright</string>
+</resources>

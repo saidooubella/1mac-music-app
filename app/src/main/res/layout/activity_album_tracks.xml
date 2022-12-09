@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            style="@style/AppToolbar" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/app_bar_layout">
+
+        <LinearLayout
+            android:id="@+id/rootView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/album_art"
+                android:layout_width="@dimen/large_art_size"
+                android:layout_height="@dimen/large_art_size"
+                android:layout_marginTop="@dimen/large_spacing"
+                android:layout_marginStart="@dimen/medium_spacing"
+                android:layout_marginEnd="@dimen/medium_spacing"
+                android:background="@color/on_primary_art_background"
+                android:scaleType="centerInside"
+                app:shapeAppearanceOverlay="@style/ImageShapeOverlay"
+                app:srcCompat="@drawable/ic_track" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/album_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/medium_spacing"
+                android:layout_marginStart="@dimen/medium_spacing"
+                android:layout_marginEnd="@dimen/medium_spacing"
+                android:gravity="center"
+                android:textColor="@color/onBackgroundColor"
+                android:textSize="@dimen/album_title_size"
+                tools:text="Connected" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/album_artist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/onBackgroundColor"
+                android:textSize="@dimen/album_artist_size"
+                android:layout_marginStart="@dimen/medium_spacing"
+                android:layout_marginEnd="@dimen/medium_spacing"
+                tools:text="Monsta X" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/tracks_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/small_spacing"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

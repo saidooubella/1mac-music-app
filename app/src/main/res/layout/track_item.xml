@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/art"
+        android:layout_width="@dimen/medium_art_size"
+        android:layout_height="@dimen/medium_art_size"
+        android:background="@color/on_background_art_background"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/ImageShapeOverlay"
+        app:srcCompat="@drawable/ic_track" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small_spacing"
+        android:layout_marginEnd="@dimen/small_spacing"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="@color/onBackgroundColor"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:textSize="@dimen/title_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/artist"
+        app:layout_constraintEnd_toStartOf="@+id/popup_btn"
+        app:layout_constraintStart_toEndOf="@id/art"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Hero" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/artist"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small_spacing"
+        android:layout_marginEnd="@dimen/small_spacing"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="@color/onBackgroundColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/popup_btn"
+        app:layout_constraintStart_toEndOf="@id/art"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        tools:text="Monsta X" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/popup_btn"
+        android:layout_width="@dimen/half_click_region_size"
+        android:layout_height="@dimen/click_region_size"
+        android:scaleType="centerInside"
+        android:tint="@color/onBackgroundColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_more" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
